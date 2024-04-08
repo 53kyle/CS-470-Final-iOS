@@ -13,6 +13,12 @@
 		275E6B9B2BB1F4340029B5D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275E6B992BB1F4340029B5D1 /* Main.storyboard */; };
 		275E6B9D2BB1F4350029B5D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 275E6B9C2BB1F4350029B5D1 /* Assets.xcassets */; };
 		275E6BA02BB1F4350029B5D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275E6B9E2BB1F4350029B5D1 /* LaunchScreen.storyboard */; };
+		2796642F2BC48B9800677D3E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2796642E2BC48B9800677D3E /* LoginViewController.swift */; };
+		279664312BC494C300677D3E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279664302BC494C300677D3E /* TabBarController.swift */; };
+		279664352BC4999300677D3E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279664342BC4999300677D3E /* HomeViewController.swift */; };
+		27F4734F2BB5F2D100161923 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 27F4734E2BB5F2D100161923 /* Alamofire */; };
+		27F473512BB5F2D100161923 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 27F473502BB5F2D100161923 /* AlamofireDynamic */; };
+		27F473532BB5F2EE00161923 /* APIInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F473522BB5F2EE00161923 /* APIInterface.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,10 @@
 		275E6B9C2BB1F4350029B5D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		275E6B9F2BB1F4350029B5D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		275E6BA12BB1F4350029B5D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2796642E2BC48B9800677D3E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		279664302BC494C300677D3E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		279664342BC4999300677D3E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		27F473522BB5F2EE00161923 /* APIInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIInterface.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27F4734F2BB5F2D100161923 /* Alamofire in Frameworks */,
+				27F473512BB5F2D100161923 /* AlamofireDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,9 +72,13 @@
 				275E6B952BB1F4340029B5D1 /* SceneDelegate.swift */,
 				275E6B972BB1F4340029B5D1 /* ViewController.swift */,
 				275E6B992BB1F4340029B5D1 /* Main.storyboard */,
+				279664302BC494C300677D3E /* TabBarController.swift */,
+				2796642E2BC48B9800677D3E /* LoginViewController.swift */,
 				275E6B9C2BB1F4350029B5D1 /* Assets.xcassets */,
 				275E6B9E2BB1F4350029B5D1 /* LaunchScreen.storyboard */,
 				275E6BA12BB1F4350029B5D1 /* Info.plist */,
+				27F473522BB5F2EE00161923 /* APIInterface.swift */,
+				279664342BC4999300677D3E /* HomeViewController.swift */,
 			);
 			path = "CS-470-Final-iOS";
 			sourceTree = "<group>";
@@ -83,6 +99,10 @@
 			dependencies = (
 			);
 			name = "CS-470-Final-iOS";
+			packageProductDependencies = (
+				27F4734E2BB5F2D100161923 /* Alamofire */,
+				27F473502BB5F2D100161923 /* AlamofireDynamic */,
+			);
 			productName = "CS-470-Final-iOS";
 			productReference = 275E6B902BB1F4340029B5D1 /* CS-470-Final-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +131,9 @@
 				Base,
 			);
 			mainGroup = 275E6B872BB1F4340029B5D1;
+			packageReferences = (
+				27F4734D2BB5F2D100161923 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 275E6B912BB1F4340029B5D1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,8 +161,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27F473532BB5F2EE00161923 /* APIInterface.swift in Sources */,
 				275E6B982BB1F4340029B5D1 /* ViewController.swift in Sources */,
 				275E6B942BB1F4340029B5D1 /* AppDelegate.swift in Sources */,
+				279664312BC494C300677D3E /* TabBarController.swift in Sources */,
+				2796642F2BC48B9800677D3E /* LoginViewController.swift in Sources */,
+				279664352BC4999300677D3E /* HomeViewController.swift in Sources */,
 				275E6B962BB1F4340029B5D1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,6 +392,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		27F4734D2BB5F2D100161923 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		27F4734E2BB5F2D100161923 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 27F4734D2BB5F2D100161923 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		27F473502BB5F2D100161923 /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 27F4734D2BB5F2D100161923 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 275E6B882BB1F4340029B5D1 /* Project object */;
 }
