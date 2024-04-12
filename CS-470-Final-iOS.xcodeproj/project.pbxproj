@@ -16,10 +16,30 @@
 		2796642F2BC48B9800677D3E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2796642E2BC48B9800677D3E /* LoginViewController.swift */; };
 		279664312BC494C300677D3E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279664302BC494C300677D3E /* TabBarController.swift */; };
 		279664352BC4999300677D3E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279664342BC4999300677D3E /* HomeViewController.swift */; };
-		27F4734F2BB5F2D100161923 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 27F4734E2BB5F2D100161923 /* Alamofire */; };
-		27F473512BB5F2D100161923 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 27F473502BB5F2D100161923 /* AlamofireDynamic */; };
+		27BB69F42BC5CC640056DD2D /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BB69F32BC5CC640056DD2D /* ScheduleTableViewController.swift */; };
+		27BB69F62BC5CE0C0056DD2D /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BB69F52BC5CE0C0056DD2D /* ScheduleTableViewCell.swift */; };
+		27BB6A082BC60DD20056DD2D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 27BB6A072BC60DD20056DD2D /* Alamofire */; };
+		27BB6A0D2BC628CB0056DD2D /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 27BB6A0C2BC628CB0056DD2D /* AlamofireDynamic */; };
+		27BB6A0E2BC628CB0056DD2D /* AlamofireDynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 27BB6A0C2BC628CB0056DD2D /* AlamofireDynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		27D750F52BC6FBDB00269D4F /* TimeClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D750F42BC6FBDB00269D4F /* TimeClockViewController.swift */; };
+		27D750F92BC7036100269D4F /* RequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D750F82BC7036100269D4F /* RequestsTableViewController.swift */; };
+		27D750FB2BC7075C00269D4F /* TimeOffTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D750FA2BC7075C00269D4F /* TimeOffTableViewCell.swift */; };
 		27F473532BB5F2EE00161923 /* APIInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F473522BB5F2EE00161923 /* APIInterface.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		27BB6A002BC60B520056DD2D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				27BB6A0E2BC628CB0056DD2D /* AlamofireDynamic in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		275E6B902BB1F4340029B5D1 /* CS-470-Final-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CS-470-Final-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,6 +53,11 @@
 		2796642E2BC48B9800677D3E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		279664302BC494C300677D3E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		279664342BC4999300677D3E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		27BB69F32BC5CC640056DD2D /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
+		27BB69F52BC5CE0C0056DD2D /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		27D750F42BC6FBDB00269D4F /* TimeClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeClockViewController.swift; sourceTree = "<group>"; };
+		27D750F82BC7036100269D4F /* RequestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsTableViewController.swift; sourceTree = "<group>"; };
+		27D750FA2BC7075C00269D4F /* TimeOffTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOffTableViewCell.swift; sourceTree = "<group>"; };
 		27F473522BB5F2EE00161923 /* APIInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIInterface.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -41,8 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27F4734F2BB5F2D100161923 /* Alamofire in Frameworks */,
-				27F473512BB5F2D100161923 /* AlamofireDynamic in Frameworks */,
+				27BB6A082BC60DD20056DD2D /* Alamofire in Frameworks */,
+				27BB6A0D2BC628CB0056DD2D /* AlamofireDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +79,7 @@
 			children = (
 				275E6B922BB1F4340029B5D1 /* CS-470-Final-iOS */,
 				275E6B912BB1F4340029B5D1 /* Products */,
+				27BB69FB2BC60B520056DD2D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,10 +94,15 @@
 		275E6B922BB1F4340029B5D1 /* CS-470-Final-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				27BB69F52BC5CE0C0056DD2D /* ScheduleTableViewCell.swift */,
 				275E6B932BB1F4340029B5D1 /* AppDelegate.swift */,
 				275E6B952BB1F4340029B5D1 /* SceneDelegate.swift */,
 				275E6B972BB1F4340029B5D1 /* ViewController.swift */,
 				275E6B992BB1F4340029B5D1 /* Main.storyboard */,
+				27D750FA2BC7075C00269D4F /* TimeOffTableViewCell.swift */,
+				27D750F82BC7036100269D4F /* RequestsTableViewController.swift */,
+				27D750F42BC6FBDB00269D4F /* TimeClockViewController.swift */,
+				27BB69F32BC5CC640056DD2D /* ScheduleTableViewController.swift */,
 				279664302BC494C300677D3E /* TabBarController.swift */,
 				2796642E2BC48B9800677D3E /* LoginViewController.swift */,
 				275E6B9C2BB1F4350029B5D1 /* Assets.xcassets */,
@@ -81,6 +112,13 @@
 				279664342BC4999300677D3E /* HomeViewController.swift */,
 			);
 			path = "CS-470-Final-iOS";
+			sourceTree = "<group>";
+		};
+		27BB69FB2BC60B520056DD2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,6 +131,7 @@
 				275E6B8C2BB1F4340029B5D1 /* Sources */,
 				275E6B8D2BB1F4340029B5D1 /* Frameworks */,
 				275E6B8E2BB1F4340029B5D1 /* Resources */,
+				27BB6A002BC60B520056DD2D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -100,8 +139,8 @@
 			);
 			name = "CS-470-Final-iOS";
 			packageProductDependencies = (
-				27F4734E2BB5F2D100161923 /* Alamofire */,
-				27F473502BB5F2D100161923 /* AlamofireDynamic */,
+				27BB6A072BC60DD20056DD2D /* Alamofire */,
+				27BB6A0C2BC628CB0056DD2D /* AlamofireDynamic */,
 			);
 			productName = "CS-470-Final-iOS";
 			productReference = 275E6B902BB1F4340029B5D1 /* CS-470-Final-iOS.app */;
@@ -161,13 +200,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27BB69F42BC5CC640056DD2D /* ScheduleTableViewController.swift in Sources */,
 				27F473532BB5F2EE00161923 /* APIInterface.swift in Sources */,
+				27D750F92BC7036100269D4F /* RequestsTableViewController.swift in Sources */,
+				27D750F52BC6FBDB00269D4F /* TimeClockViewController.swift in Sources */,
 				275E6B982BB1F4340029B5D1 /* ViewController.swift in Sources */,
 				275E6B942BB1F4340029B5D1 /* AppDelegate.swift in Sources */,
+				27D750FB2BC7075C00269D4F /* TimeOffTableViewCell.swift in Sources */,
 				279664312BC494C300677D3E /* TabBarController.swift in Sources */,
 				2796642F2BC48B9800677D3E /* LoginViewController.swift in Sources */,
 				279664352BC4999300677D3E /* HomeViewController.swift in Sources */,
 				275E6B962BB1F4340029B5D1 /* SceneDelegate.swift in Sources */,
+				27BB69F62BC5CE0C0056DD2D /* ScheduleTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,8 +364,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XLJ928QBTB;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CS-470-Final-iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Work Scheduler";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Face ID is required for recording punches.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -349,8 +396,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XLJ928QBTB;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CS-470-Final-iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Work Scheduler";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Face ID is required for recording punches.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -405,12 +455,12 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		27F4734E2BB5F2D100161923 /* Alamofire */ = {
+		27BB6A072BC60DD20056DD2D /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 27F4734D2BB5F2D100161923 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		27F473502BB5F2D100161923 /* AlamofireDynamic */ = {
+		27BB6A0C2BC628CB0056DD2D /* AlamofireDynamic */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 27F4734D2BB5F2D100161923 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = AlamofireDynamic;

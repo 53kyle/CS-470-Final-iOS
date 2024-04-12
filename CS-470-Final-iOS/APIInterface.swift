@@ -19,8 +19,7 @@ class APIInterface {
 	static let sharedInstance = APIInterface()
 	let baseURL = "http://blue.cs.sonoma.edu:8100/api/v1/"
 	var user = EmployeeModel(employee_id: -1, first_name: "", last_name: "", permission: 0, password_hash: "", max_hours: 0);
-	var nextShift = ShiftModel(shift_id: -1, department: "", employee_id: -1, start_time: "", end_time: "", meal: 0, meal_start: "", meal_end: "")
-	
+
 	func getUserInfo(userID: Int) async -> Bool {
 		user = EmployeeModel(employee_id: -1, first_name: "", last_name: "", permission: 0, password_hash: "", max_hours: 0);
 		let URL = baseURL + "login/\(userID)";
@@ -48,9 +47,9 @@ class APIInterface {
 		return user.employee_id >= 0
 	}
 	
-	func getNextShiftForUser(userID: Int) async -> Bool {
-		nextShift = ShiftModel(shift_id: -1, department: "", employee_id: -1, start_time: "", end_time: "", meal: 0, meal_start: "", meal_end: "")
-		let URL = baseURL + "shifts/employee/\(userID)/next";
+	func getNextShiftForUser(userID: Int) async -> ShiftModel {
+		var returnShift = ShiftModel(shift_id: -1, department: "", employee_id: -1, start_time: "", end_time: "", meal: 0, meal_start: "", meal_end: "", date: "", employee_fname: "", employee_lname: "")
+		let URL = baseURL + "shifts/employee/\(userID)/next"
 		
 		await withCheckedContinuation { continuation in
 			AF.request(URL, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { resp in
@@ -60,7 +59,7 @@ class APIInterface {
 							let jsonData = try JSONDecoder().decode([ShiftModel].self, from: data!)
 							
 							if (jsonData.count > 0) {
-								self.nextShift = jsonData[0]
+								returnShift = jsonData[0]
 							}
 							
 							continuation.resume()
@@ -75,7 +74,195 @@ class APIInterface {
 			}
 		}
 		
-		return true
+		return returnShift
+	}
+	
+	func getTodaysShiftForUser(userID: Int) async -> ShiftModel {
+		var returnShift = ShiftModel(shift_id: -1, department: "", employee_id: -1, start_time: "", end_time: "", meal: 0, meal_start: "", meal_end: "", date: "", employee_fname: "", employee_lname: "")
+		let URL = baseURL + "shifts/employee/\(userID)/today"
+		
+		await withCheckedContinuation { continuation in
+			AF.request(URL, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { resp in
+				switch resp.result {
+					case .success(let data):
+						do {
+							let jsonData = try JSONDecoder().decode([ShiftModel].self, from: data!)
+							
+							if (jsonData.count > 0) {
+								returnShift = jsonData[0]
+							}
+							
+							continuation.resume()
+						} catch {
+							print(String(describing: error))
+							continuation.resume()
+						}
+					case .failure(let error):
+						print(String(describing: error))
+						continuation.resume()
+				}
+			}
+		}
+		
+		return returnShift
+	}
+	
+	func getLastPunchForUser(userID: Int) async -> PunchModel {
+		var returnPunch = PunchModel(employee_id: -1, punchin: "", approved: 0, pending: 0, punch_type: "")
+		let URL = baseURL + "punchin/last-punch/\(userID)"
+		
+		await withCheckedContinuation { continuation in
+			AF.request(URL, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { resp in
+				switch resp.result {
+					case .success(let data):
+						do {
+							let jsonData = try JSONDecoder().decode([PunchModel].self, from: data!)
+							
+							if (jsonData.count > 0) {
+								returnPunch = jsonData[0]
+							}
+							
+							continuation.resume()
+						} catch {
+							print(String(describing: error))
+							continuation.resume()
+						}
+					case .failure(let error):
+						print(String(describing: error))
+						continuation.resume()
+				}
+			}
+		}
+		
+		return returnPunch
+	}
+	
+	func getAllShiftsForUser(userID: Int, startDate: String, endDate: String) async -> [ShiftModel] {
+		var returnShifts = [ShiftModel]()
+		let URL = baseURL + "shifts/employee/\(userID)/\(startDate)/\(endDate)"
+		
+		await withCheckedContinuation { continuation in
+			AF.request(URL, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { resp in
+				switch resp.result {
+					case .success(let data):
+						do {
+							let jsonData = try JSONDecoder().decode([ShiftModel].self, from: data!)
+							
+							if (jsonData.count > 0) {
+								returnShifts = jsonData
+							}
+							
+							continuation.resume()
+						} catch {
+							print(String(describing: error))
+							continuation.resume()
+						}
+					case .failure(let error):
+						print(String(describing: error))
+						continuation.resume()
+				}
+			}
+		}
+		
+		return returnShifts
+	}
+	
+	func getTimeOffRequestsForUser(userID: Int) async -> [TimeOffModel] {
+		var returnTimeOffRequests = [TimeOffModel]()
+		let URL = baseURL + "employees/requests/time-off/\(userID)/"
+		
+		await withCheckedContinuation { continuation in
+			AF.request(URL, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { resp in
+				switch resp.result {
+					case .success(let data):
+						do {
+							let jsonData = try JSONDecoder().decode([TimeOffModel].self, from: data!)
+							
+							if (jsonData.count > 0) {
+								returnTimeOffRequests = jsonData
+							}
+							
+							continuation.resume()
+						} catch {
+							print(String(describing: error))
+							continuation.resume()
+						}
+					case .failure(let error):
+						print(String(describing: error))
+						continuation.resume()
+				}
+			}
+		}
+		
+		return returnTimeOffRequests
+	}
+	
+	func startShift(userID: Int, approved: Bool) async {
+		let URL = baseURL + "punchin/start-shift/\(userID)/\(approved ? 1 : 0)"
+		
+		await withCheckedContinuation { continuation in
+			AF.request(URL, method: .post, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { resp in
+				switch resp.result {
+					case .success(let data):
+						print(String(describing: data))
+						continuation.resume()
+					case .failure(let error):
+						print(String(describing: error))
+						continuation.resume()
+				}
+			}
+		}
+	}
+	
+	func endShift(userID: Int, approved: Bool) async {
+		let URL = baseURL + "punchin/end-shift/\(userID)/\(approved ? 1 : 0)"
+		
+		await withCheckedContinuation { continuation in
+			AF.request(URL, method: .post, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { resp in
+				switch resp.result {
+					case .success(let data):
+						print(String(describing: data))
+						continuation.resume()
+					case .failure(let error):
+						print(String(describing: error))
+						continuation.resume()
+				}
+			}
+		}
+	}
+	
+	func startMeal(userID: Int, approved: Bool) async {
+		let URL = baseURL + "punchin/start-meal/\(userID)/\(approved ? 1 : 0)"
+		
+		await withCheckedContinuation { continuation in
+			AF.request(URL, method: .post, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { resp in
+				switch resp.result {
+					case .success(let data):
+						print(String(describing: data))
+						continuation.resume()
+					case .failure(let error):
+						print(String(describing: error))
+						continuation.resume()
+				}
+			}
+		}
+	}
+	
+	func endMeal(userID: Int, approved: Bool) async {
+		let URL = baseURL + "punchin/end-meal/\(userID)/\(approved ? 1 : 0)"
+		
+		await withCheckedContinuation { continuation in
+			AF.request(URL, method: .post, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { resp in
+				switch resp.result {
+					case .success(let data):
+						print(String(describing: data))
+						continuation.resume()
+					case .failure(let error):
+						print(String(describing: error))
+						continuation.resume()
+				}
+			}
+		}
 	}
 }
 
@@ -99,8 +286,27 @@ struct ShiftModel: Codable {
 	let start_time: String
 	let end_time: String
 	let meal: Int
-	let meal_start: String
-	let meal_end: String
+	let meal_start: String?
+	let meal_end: String?
+	let date: String?
+	let employee_fname: String?
+	let employee_lname: String?
+}
+
+struct TimeOffModel: Codable {
+	let employee_id: Int
+	let start_time: String
+	let end_time: String
+	let reason: String
+	let status: String
+}
+
+struct PunchModel: Codable {
+	let employee_id: Int
+	let punchin: String
+	let approved: Int
+	let pending: Int
+	let punch_type: String
 }
 
 extension Notification.Name {

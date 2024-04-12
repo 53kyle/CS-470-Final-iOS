@@ -16,9 +16,39 @@ class TabBarController: UITabBarController {
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
-		performSegue(withIdentifier: "showLogin", sender: self)
+		let defaults = UserDefaults.standard
+		let savedEmployeeID = defaults.string(forKey: "savedEmployeeID")
+		let savedPassword = defaults.string(forKey: "savedPassword")
+		
+		Task { @MainActor in
+			let success = await APIInterface.sharedInstance.getUserInfo(userID: Int(savedEmployeeID ?? "-1") ?? -1)
+			if (success) {
+				if (hashCode(str: savedPassword ?? "") == APIInterface.sharedInstance.user.password_hash) {
+					NotificationCenter.default.post(name: .changeUser, object: nil)
+					print("Login Successful")
+				}
+				else {
+					performSegue(withIdentifier: "showLogin", sender: self)
+					print("Incorrect Password")
+				}
+			}
+			else {
+				performSegue(withIdentifier: "showLogin", sender: self)
+				print("User Not Found")
+			}
+		}
 	}
     
+	func hashCode(str: String) -> String {
+		var hash: Int = 0
+		
+		for char in str {
+			hash = (hash << 5) - hash + Int(char.asciiValue!)
+			hash |= 0
+		}
+		
+		return String(format:"%02x", hash)
+	}
 
     /*
     // MARK: - Navigation

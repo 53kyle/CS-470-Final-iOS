@@ -10,6 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
 	@IBOutlet weak var employeeIDField: UITextField!
 	@IBOutlet weak var passwordField: UITextField!
+	@IBOutlet weak var stayLoggedInSwitch: UISwitch!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,9 @@ class LoginViewController: UIViewController {
 		passwordField.layer.borderWidth = 2.5
 		employeeIDField.layer.borderColor = UIColor.clear.cgColor
 		passwordField.layer.borderColor = UIColor.clear.cgColor
+		
+		let defaults = UserDefaults.standard
+		stayLoggedInSwitch.setOn(defaults.bool(forKey: "stayLoggedIn"), animated: false)
         // Do any additional setup after loading the view.
     }
     
@@ -33,9 +37,15 @@ class LoginViewController: UIViewController {
 					employeeIDField.layer.borderColor = UIColor.clear.cgColor
 					passwordField.layer.borderColor = UIColor.clear.cgColor
 					
-					if await APIInterface.sharedInstance.getNextShiftForUser(userID: APIInterface.sharedInstance.user.employee_id) {
-						NotificationCenter.default.post(name: .changeUser, object: nil)
+					let defaults = UserDefaults.standard
+					
+					if (stayLoggedInSwitch.isOn) {
+						defaults.set(employeeIDField.text, forKey: "savedEmployeeID")
+						defaults.set(passwordField.text, forKey: "savedPassword")
+						defaults.set(stayLoggedInSwitch.isOn, forKey: "stayLoggedIn")
 					}
+					
+					NotificationCenter.default.post(name: .changeUser, object: nil)
 				}
 				else {
 					employeeIDField.layer.borderColor = UIColor.clear.cgColor
@@ -62,7 +72,11 @@ class LoginViewController: UIViewController {
 		return String(format:"%02x", hash)
 	}
 	
-    /*
+	@IBAction func toggleStayLoggedIn(_ sender: Any) {
+		
+	}
+	
+	/*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
