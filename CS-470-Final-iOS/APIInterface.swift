@@ -197,6 +197,36 @@ class APIInterface {
 		return returnTimeOffRequests
 	}
 	
+	func getAvailabilityRequestsForUser(userID: Int) async -> [AvailabilityModel] {
+		var returnAvailabilityRequests = [AvailabilityModel]()
+		let URL = baseURL + "employees/requests/availability/\(userID)/"
+		
+		await withCheckedContinuation { continuation in
+			AF.request(URL, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { resp in
+				switch resp.result {
+					case .success(let data):
+						do {
+							let jsonData = try JSONDecoder().decode([AvailabilityModel].self, from: data!)
+							
+							if (jsonData.count > 0) {
+								returnAvailabilityRequests = jsonData
+							}
+							
+							continuation.resume()
+						} catch {
+							print(String(describing: error))
+							continuation.resume()
+						}
+					case .failure(let error):
+						print(String(describing: error))
+						continuation.resume()
+				}
+			}
+		}
+		
+		return returnAvailabilityRequests
+	}
+	
 	func startShift(userID: Int, approved: Bool) async {
 		let URL = baseURL + "punchin/start-shift/\(userID)/\(approved ? 1 : 0)"
 		
@@ -264,6 +294,27 @@ class APIInterface {
 			}
 		}
 	}
+	
+	func addTimeOff(userID: Int, startTime: String, endTime: String, reason: String) async -> Bool {
+		let URL = baseURL + "employees/requests/add-time-off/\(userID)/\(startTime)/\(endTime)/\(reason)"
+		var success = false
+		
+		await withCheckedContinuation { continuation in
+			AF.request(URL, method: .post, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { resp in
+				switch resp.result {
+					case .success(let data):
+						print(String(describing: data))
+						success = true
+						continuation.resume()
+					case .failure(let error):
+						print(String(describing: error))
+						continuation.resume()
+				}
+			}
+		}
+		
+		return success
+	}
 }
 
 struct UserModel: Codable {
@@ -298,6 +349,14 @@ struct TimeOffModel: Codable {
 	let start_time: String
 	let end_time: String
 	let reason: String
+	let status: String
+}
+
+struct AvailabilityModel: Codable {
+	let employee_id: Int
+	let day_of_week: String
+	let start_time: String
+	let end_time: String
 	let status: String
 }
 

@@ -28,7 +28,6 @@ class TimeClockViewController: UIViewController {
 		Task { @MainActor in
 			await refreshPunches()
 		}
-        // Do any additional setup after loading the view.
     }
 	
 	@objc func changeUser(notification: NSNotification) {
@@ -148,7 +147,7 @@ class TimeClockViewController: UIViewController {
 		var denialMessage = ""
 		var approved = false
 		
-		var context = LAContext()
+		let context = LAContext()
 		
 		var error: NSError?
 		
@@ -238,7 +237,7 @@ class TimeClockViewController: UIViewController {
 		var denialMessage = ""
 		var approved = false
 		
-		var context = LAContext()
+		let context = LAContext()
 		
 		var error: NSError?
 		
@@ -328,7 +327,7 @@ class TimeClockViewController: UIViewController {
 		var denialMessage = ""
 		var approved = false
 		
-		var context = LAContext()
+		let context = LAContext()
 		
 		var error: NSError?
 		
@@ -418,7 +417,7 @@ class TimeClockViewController: UIViewController {
 		var denialMessage = ""
 		var approved = false
 		
-		var context = LAContext()
+		let context = LAContext()
 		
 		var error: NSError?
 		
@@ -502,15 +501,4 @@ class TimeClockViewController: UIViewController {
 			}
 		}
 	}
-	
-	/*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

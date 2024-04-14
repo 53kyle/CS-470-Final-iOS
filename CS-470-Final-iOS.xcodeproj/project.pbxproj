@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		275E6B942BB1F4340029B5D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E6B932BB1F4340029B5D1 /* AppDelegate.swift */; };
 		275E6B962BB1F4340029B5D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E6B952BB1F4340029B5D1 /* SceneDelegate.swift */; };
-		275E6B982BB1F4340029B5D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E6B972BB1F4340029B5D1 /* ViewController.swift */; };
 		275E6B9B2BB1F4340029B5D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275E6B992BB1F4340029B5D1 /* Main.storyboard */; };
 		275E6B9D2BB1F4350029B5D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 275E6B9C2BB1F4350029B5D1 /* Assets.xcassets */; };
 		275E6BA02BB1F4350029B5D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275E6B9E2BB1F4350029B5D1 /* LaunchScreen.storyboard */; };
+		276BB3632BCB919700DA386A /* NewTimeOffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BB3622BCB919700DA386A /* NewTimeOffViewController.swift */; };
+		276BB3652BCBB0D600DA386A /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BB3642BCBB0D600DA386A /* DateHelper.swift */; };
 		2796642F2BC48B9800677D3E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2796642E2BC48B9800677D3E /* LoginViewController.swift */; };
 		279664312BC494C300677D3E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279664302BC494C300677D3E /* TabBarController.swift */; };
 		279664352BC4999300677D3E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279664342BC4999300677D3E /* HomeViewController.swift */; };
@@ -23,7 +24,7 @@
 		27BB6A0E2BC628CB0056DD2D /* AlamofireDynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 27BB6A0C2BC628CB0056DD2D /* AlamofireDynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		27D750F52BC6FBDB00269D4F /* TimeClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D750F42BC6FBDB00269D4F /* TimeClockViewController.swift */; };
 		27D750F92BC7036100269D4F /* RequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D750F82BC7036100269D4F /* RequestsTableViewController.swift */; };
-		27D750FB2BC7075C00269D4F /* TimeOffTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D750FA2BC7075C00269D4F /* TimeOffTableViewCell.swift */; };
+		27D750FB2BC7075C00269D4F /* RequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D750FA2BC7075C00269D4F /* RequestTableViewCell.swift */; };
 		27F473532BB5F2EE00161923 /* APIInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F473522BB5F2EE00161923 /* APIInterface.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,11 +46,12 @@
 		275E6B902BB1F4340029B5D1 /* CS-470-Final-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CS-470-Final-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		275E6B932BB1F4340029B5D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		275E6B952BB1F4340029B5D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		275E6B972BB1F4340029B5D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		275E6B9A2BB1F4340029B5D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		275E6B9C2BB1F4350029B5D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		275E6B9F2BB1F4350029B5D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		275E6BA12BB1F4350029B5D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		276BB3622BCB919700DA386A /* NewTimeOffViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTimeOffViewController.swift; sourceTree = "<group>"; };
+		276BB3642BCBB0D600DA386A /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		2796642E2BC48B9800677D3E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		279664302BC494C300677D3E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		279664342BC4999300677D3E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -57,7 +59,7 @@
 		27BB69F52BC5CE0C0056DD2D /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		27D750F42BC6FBDB00269D4F /* TimeClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeClockViewController.swift; sourceTree = "<group>"; };
 		27D750F82BC7036100269D4F /* RequestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsTableViewController.swift; sourceTree = "<group>"; };
-		27D750FA2BC7075C00269D4F /* TimeOffTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOffTableViewCell.swift; sourceTree = "<group>"; };
+		27D750FA2BC7075C00269D4F /* RequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTableViewCell.swift; sourceTree = "<group>"; };
 		27F473522BB5F2EE00161923 /* APIInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIInterface.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,24 +96,41 @@
 		275E6B922BB1F4340029B5D1 /* CS-470-Final-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				27BB69F52BC5CE0C0056DD2D /* ScheduleTableViewCell.swift */,
+				27F473522BB5F2EE00161923 /* APIInterface.swift */,
 				275E6B932BB1F4340029B5D1 /* AppDelegate.swift */,
+				276BB3642BCBB0D600DA386A /* DateHelper.swift */,
 				275E6B952BB1F4340029B5D1 /* SceneDelegate.swift */,
-				275E6B972BB1F4340029B5D1 /* ViewController.swift */,
 				275E6B992BB1F4340029B5D1 /* Main.storyboard */,
-				27D750FA2BC7075C00269D4F /* TimeOffTableViewCell.swift */,
-				27D750F82BC7036100269D4F /* RequestsTableViewController.swift */,
-				27D750F42BC6FBDB00269D4F /* TimeClockViewController.swift */,
-				27BB69F32BC5CC640056DD2D /* ScheduleTableViewController.swift */,
-				279664302BC494C300677D3E /* TabBarController.swift */,
-				2796642E2BC48B9800677D3E /* LoginViewController.swift */,
+				276BB3662BCBB2D700DA386A /* Table View Cells */,
+				276BB3672BCBB2E900DA386A /* View Controllers */,
 				275E6B9C2BB1F4350029B5D1 /* Assets.xcassets */,
 				275E6B9E2BB1F4350029B5D1 /* LaunchScreen.storyboard */,
 				275E6BA12BB1F4350029B5D1 /* Info.plist */,
-				27F473522BB5F2EE00161923 /* APIInterface.swift */,
-				279664342BC4999300677D3E /* HomeViewController.swift */,
 			);
 			path = "CS-470-Final-iOS";
+			sourceTree = "<group>";
+		};
+		276BB3662BCBB2D700DA386A /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				27BB69F52BC5CE0C0056DD2D /* ScheduleTableViewCell.swift */,
+				27D750FA2BC7075C00269D4F /* RequestTableViewCell.swift */,
+			);
+			path = "Table View Cells";
+			sourceTree = "<group>";
+		};
+		276BB3672BCBB2E900DA386A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				279664342BC4999300677D3E /* HomeViewController.swift */,
+				2796642E2BC48B9800677D3E /* LoginViewController.swift */,
+				276BB3622BCB919700DA386A /* NewTimeOffViewController.swift */,
+				27D750F82BC7036100269D4F /* RequestsTableViewController.swift */,
+				27BB69F32BC5CC640056DD2D /* ScheduleTableViewController.swift */,
+				279664302BC494C300677D3E /* TabBarController.swift */,
+				27D750F42BC6FBDB00269D4F /* TimeClockViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		27BB69FB2BC60B520056DD2D /* Frameworks */ = {
@@ -204,13 +223,14 @@
 				27F473532BB5F2EE00161923 /* APIInterface.swift in Sources */,
 				27D750F92BC7036100269D4F /* RequestsTableViewController.swift in Sources */,
 				27D750F52BC6FBDB00269D4F /* TimeClockViewController.swift in Sources */,
-				275E6B982BB1F4340029B5D1 /* ViewController.swift in Sources */,
 				275E6B942BB1F4340029B5D1 /* AppDelegate.swift in Sources */,
-				27D750FB2BC7075C00269D4F /* TimeOffTableViewCell.swift in Sources */,
+				27D750FB2BC7075C00269D4F /* RequestTableViewCell.swift in Sources */,
 				279664312BC494C300677D3E /* TabBarController.swift in Sources */,
 				2796642F2BC48B9800677D3E /* LoginViewController.swift in Sources */,
+				276BB3652BCBB0D600DA386A /* DateHelper.swift in Sources */,
 				279664352BC4999300677D3E /* HomeViewController.swift in Sources */,
 				275E6B962BB1F4340029B5D1 /* SceneDelegate.swift in Sources */,
+				276BB3632BCB919700DA386A /* NewTimeOffViewController.swift in Sources */,
 				27BB69F62BC5CE0C0056DD2D /* ScheduleTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
