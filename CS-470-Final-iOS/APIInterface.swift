@@ -315,6 +315,78 @@ class APIInterface {
 		
 		return success
 	}
+	
+	func getAllNotificationsForUser(userID: Int) async -> [NotificationModel] {
+		var returnNotifications = [NotificationModel]()
+		let URL = baseURL + "notifications/all-notifications/\(userID)/"
+		
+		await withCheckedContinuation { continuation in
+			AF.request(URL, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { resp in
+				switch resp.result {
+					case .success(let data):
+						do {
+							let jsonData = try JSONDecoder().decode([NotificationModel].self, from: data!)
+							
+							if (jsonData.count > 0) {
+								returnNotifications = jsonData
+							}
+							
+							continuation.resume()
+						} catch {
+							print(String(describing: error))
+							continuation.resume()
+						}
+					case .failure(let error):
+						print(String(describing: error))
+						continuation.resume()
+				}
+			}
+		}
+		
+		return returnNotifications
+	}
+	
+	func setNotificationsReadForUser(userID: Int) async -> Bool {
+		let URL = baseURL + "notifications/set-notifications-read/\(userID)"
+		var success = false
+		
+		await withCheckedContinuation { continuation in
+			AF.request(URL, method: .put, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { resp in
+				switch resp.result {
+					case .success(let data):
+						print(String(describing: data))
+						success = true
+						continuation.resume()
+					case .failure(let error):
+						print(String(describing: error))
+						continuation.resume()
+				}
+			}
+		}
+		
+		return success
+	}
+	
+	func addNotification(userID: Int, message: String) async -> Bool {
+		let URL = baseURL + "notifications/add-notification/\(userID)/\(message)/"
+		var success = false
+		
+		await withCheckedContinuation { continuation in
+			AF.request(URL, method: .post, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { resp in
+				switch resp.result {
+					case .success(let data):
+						print(String(describing: data))
+						success = true
+						continuation.resume()
+					case .failure(let error):
+						print(String(describing: error))
+						continuation.resume()
+				}
+			}
+		}
+		
+		return success
+	}
 }
 
 struct UserModel: Codable {
@@ -368,6 +440,15 @@ struct PunchModel: Codable {
 	let punch_type: String
 }
 
+struct NotificationModel: Codable {
+	let employee_id: Int
+	let time: String
+	let unread: Int
+	let message: String
+}
+
 extension Notification.Name {
 	static let changeUser = Notification.Name("changeUser")
+	static let addPunch = Notification.Name("addPunch")
+	static let readNotifications = Notification.Name("readNotifications")
 }

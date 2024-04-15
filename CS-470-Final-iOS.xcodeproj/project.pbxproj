@@ -14,6 +14,8 @@
 		275E6BA02BB1F4350029B5D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275E6B9E2BB1F4350029B5D1 /* LaunchScreen.storyboard */; };
 		276BB3632BCB919700DA386A /* NewTimeOffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BB3622BCB919700DA386A /* NewTimeOffViewController.swift */; };
 		276BB3652BCBB0D600DA386A /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BB3642BCBB0D600DA386A /* DateHelper.swift */; };
+		276BB3692BCC8B8D00DA386A /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BB3682BCC8B8D00DA386A /* NotificationsTableViewController.swift */; };
+		276BB36B2BCC8BE200DA386A /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BB36A2BCC8BE200DA386A /* NotificationTableViewCell.swift */; };
 		2796642F2BC48B9800677D3E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2796642E2BC48B9800677D3E /* LoginViewController.swift */; };
 		279664312BC494C300677D3E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279664302BC494C300677D3E /* TabBarController.swift */; };
 		279664352BC4999300677D3E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279664342BC4999300677D3E /* HomeViewController.swift */; };
@@ -52,6 +54,8 @@
 		275E6BA12BB1F4350029B5D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		276BB3622BCB919700DA386A /* NewTimeOffViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTimeOffViewController.swift; sourceTree = "<group>"; };
 		276BB3642BCBB0D600DA386A /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		276BB3682BCC8B8D00DA386A /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
+		276BB36A2BCC8BE200DA386A /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		2796642E2BC48B9800677D3E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		279664302BC494C300677D3E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		279664342BC4999300677D3E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 			children = (
 				27BB69F52BC5CE0C0056DD2D /* ScheduleTableViewCell.swift */,
 				27D750FA2BC7075C00269D4F /* RequestTableViewCell.swift */,
+				276BB36A2BCC8BE200DA386A /* NotificationTableViewCell.swift */,
 			);
 			path = "Table View Cells";
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 				27BB69F32BC5CC640056DD2D /* ScheduleTableViewController.swift */,
 				279664302BC494C300677D3E /* TabBarController.swift */,
 				27D750F42BC6FBDB00269D4F /* TimeClockViewController.swift */,
+				276BB3682BCC8B8D00DA386A /* NotificationsTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -225,11 +231,13 @@
 				27D750F52BC6FBDB00269D4F /* TimeClockViewController.swift in Sources */,
 				275E6B942BB1F4340029B5D1 /* AppDelegate.swift in Sources */,
 				27D750FB2BC7075C00269D4F /* RequestTableViewCell.swift in Sources */,
+				276BB3692BCC8B8D00DA386A /* NotificationsTableViewController.swift in Sources */,
 				279664312BC494C300677D3E /* TabBarController.swift in Sources */,
 				2796642F2BC48B9800677D3E /* LoginViewController.swift in Sources */,
 				276BB3652BCBB0D600DA386A /* DateHelper.swift in Sources */,
 				279664352BC4999300677D3E /* HomeViewController.swift in Sources */,
 				275E6B962BB1F4340029B5D1 /* SceneDelegate.swift in Sources */,
+				276BB36B2BCC8BE200DA386A /* NotificationTableViewCell.swift in Sources */,
 				276BB3632BCB919700DA386A /* NewTimeOffViewController.swift in Sources */,
 				27BB69F62BC5CE0C0056DD2D /* ScheduleTableViewCell.swift in Sources */,
 			);

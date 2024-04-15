@@ -14,14 +14,16 @@ class ScheduleTableViewController: UITableViewController {
         super.viewDidLoad()
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(changeUser(notification:)), name: .changeUser, object: nil)
-		
+    }
+
+	override func viewDidAppear(_ animated: Bool) {
 		Task { @MainActor in
 			self.shifts = await APIInterface.sharedInstance.getAllShiftsForUser(userID: APIInterface.sharedInstance.user.employee_id, startDate: "2024-04-01", endDate: "2069-12-31")
 			
 			self.tableView.reloadData()
 		}
-    }
-
+	}
+	
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -29,7 +31,7 @@ class ScheduleTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 80
+		return 30
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> ScheduleTableViewCell {

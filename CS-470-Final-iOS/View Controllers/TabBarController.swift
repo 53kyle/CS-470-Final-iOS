@@ -11,6 +11,8 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(refreshNotifications(notification:)), name: .readNotifications, object: nil)
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -46,5 +48,25 @@ class TabBarController: UITabBarController {
 		}
 		
 		return String(format:"%02x", hash)
+	}
+	
+	@objc func refreshNotifications(notification: NSNotification) {
+		print("notifications refreshing")
+		Task { @MainActor in
+			let notifications = await APIInterface.sharedInstance.getAllNotificationsForUser(userID: APIInterface.sharedInstance.user.employee_id)
+			
+			let numUnreadNotifications = notifications.filter {
+				$0.unread == 1
+			}.count
+			
+			if let tabBarItem = self.tabBar.items?[4] {
+				if (numUnreadNotifications > 0) {
+					tabBarItem.badgeValue = "\(numUnreadNotifications)"
+				}
+				else {
+					tabBarItem.badgeValue = nil
+				}
+			}
+		}
 	}
 }

@@ -33,6 +33,7 @@ class HomeViewController: UIViewController {
 		
 		Task { @MainActor in
 			let nextShift = await APIInterface.sharedInstance.getNextShiftForUser(userID: APIInterface.sharedInstance.user.employee_id)
+			let notifications = await APIInterface.sharedInstance.getAllNotificationsForUser(userID: APIInterface.sharedInstance.user.employee_id)
 			
 			if (nextShift.shift_id > -1) {
 				let dateFormatter = DateFormatter()
@@ -65,6 +66,19 @@ class HomeViewController: UIViewController {
 				nextShiftMonthLabel.text = ""
 				nextShiftDepartmentLabel.text = ""
 				nextShiftMealLabel.text = ""
+			}
+			
+			let numUnreadNotifications = notifications.filter {
+				$0.unread == 1
+			}.count
+			
+			if let tabBarItem = self.navigationController?.tabBarController?.tabBar.items?[4] {
+				if (numUnreadNotifications > 0) {
+					tabBarItem.badgeValue = "\(numUnreadNotifications)"
+				}
+				else {
+					tabBarItem.badgeValue = nil
+				}
 			}
 		}
 	}

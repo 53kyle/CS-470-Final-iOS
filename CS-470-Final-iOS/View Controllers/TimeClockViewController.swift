@@ -24,11 +24,13 @@ class TimeClockViewController: UIViewController {
 
 		punchesBG.clipsToBounds = true
 		punchesBG.layer.cornerRadius = 10
-		
+    }
+	
+	override func viewDidAppear(_ animated: Bool) {
 		Task { @MainActor in
 			await refreshPunches()
 		}
-    }
+	}
 	
 	@objc func changeUser(notification: NSNotification) {
 		Task { @MainActor in

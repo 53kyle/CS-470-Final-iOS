@@ -15,14 +15,17 @@ class RequestsTableViewController: UITableViewController {
         super.viewDidLoad()
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(changeUser(notification:)), name: .changeUser, object: nil)
-		
+    }
+
+	override func viewDidAppear(_ animated: Bool) {
 		Task { @MainActor in
 			self.timeOffRequests = await APIInterface.sharedInstance.getTimeOffRequestsForUser(userID: APIInterface.sharedInstance.user.employee_id)
 			self.availabilityRequests = await APIInterface.sharedInstance.getAvailabilityRequestsForUser(userID: APIInterface.sharedInstance.user.employee_id)
+			
 			self.tableView.reloadData()
 		}
-    }
-
+	}
+	
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
